@@ -1,9 +1,17 @@
 <?php
-//Herencia
-class DatabaseManager extends Database{
 
-    public function getCampaign($campaignId, $userID){
+include "Campaign.php";
 
+class DatabaseManager{
+
+    public function getCampaign($campaignId){
+        $campaign = new Campaign();
+        return $campaign->find($campaignId);
+    }
+
+    public function all(){
+        $campaign = new Campaign();
+        return $campaign->all();
     }
 
 }

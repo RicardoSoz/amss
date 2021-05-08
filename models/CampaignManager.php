@@ -1,9 +1,17 @@
 <?php
-//Herencia
-class CampaignManager extends DatabaseManager{
 
-    public function shareCampaignManager($campaignId, $userID){
+include "DatabaseManager.php";
 
+class CampaignManager{
+
+    public function getCampaign($campaignId){
+        $manager = new DatabaseManager();
+        return $manager->getCampaign($campaignId);
+    }
+
+    public function all(){
+        $manager = new DatabaseManager();
+        return $manager->all();
     }
 
 }
