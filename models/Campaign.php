@@ -28,7 +28,7 @@ class Campaign extends Database{
         }
     }
     //TODO: 
-    public function find($id, $userID){
+    public function find($id){
         try{
             $result = parent::connect()->prepare("SELECT * FROM campaign WHERE id = ?");
             $result->bindParam(1, $id, PDO::PARAM_INT);

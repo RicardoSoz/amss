@@ -30,9 +30,10 @@ class shareCampaignController{
         return $campaignManager->all();
     }
 
-    public function share($campaignId){
+    public function share(){
         $campaignManager = new CampaignManager();
-        $campaign = $campaignManager->getCampaign($campaignId);
+        $campaign = $campaignManager->getCampaign($_GET['id']);
+        return $campaign;
     }
 
 }
