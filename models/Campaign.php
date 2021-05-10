@@ -24,7 +24,7 @@ class Campaign extends Database{
             $result->bindParam(6, $data['price'], PDO::PARAM_STR);
             return $result->execute();
         }catch (Exception $e){
-           die("Error User->register() " . $e->getMessage());
+           die("Error Campaign->register() " . $e->getMessage());
         }
     }
     //TODO: 
@@ -47,10 +47,11 @@ class Campaign extends Database{
             $result->bindParam(3, $data['link'], PDO::PARAM_STR);
             $result->bindParam(4, $data['created'], PDO::PARAM_STR);
             $result->bindParam(5, $data['expirationDate'], PDO::PARAM_STR);
-            $result->bindParam(6, $data['id'], PDO::PARAM_INT);
+            $result->bindParam(6, $data['price'], PDO::PARAM_INT);
+            $result->bindParam(7, $data['id'], PDO::PARAM_INT);
             return $result->execute();
         }catch (Exception $e){
-            die("Error User->update_register() " . $e->getMessage());
+            die("Error Campaign->update_register() " . $e->getMessage());
         }
     }
 }

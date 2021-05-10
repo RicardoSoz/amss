@@ -14,4 +14,9 @@ class DatabaseManager{
         return $campaign->all();
     }
 
+    public function update_register($data){
+        $campaign = new Campaign();
+        return $campaign->update_register($data);
+    }
+
 }

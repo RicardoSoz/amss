@@ -1,6 +1,6 @@
 <h1>Lista de usuarios</h1>
 
-<a href="?controller=campaign&method=create">
+<a href="?controller=shareCampaign&method=create">
     <button class="btn btn-green">Crear</button>
 </a>
 <table class="table">
@@ -15,7 +15,7 @@
     </thead>
     <tbody>
     <?php 
-    //include "../controllers/shareCampaignController.php";
+    
     require_once( 'C:\xampp\htdocs\Teespring2\controllers\shareCampaignController.php');
     $shareCampaignController = new shareCampaignController();
     $userID = 9;

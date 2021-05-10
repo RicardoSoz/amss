@@ -1,5 +1,5 @@
 <section class="container">
-    <h1>Crear usuario</h1>
+    <h1>Editar usuario</h1>
     <form action="?controller=user&method=update&id=<?= $user->id ?>" method="POST">
         <section class="form-group">
             <label for="name">Name</label>

@@ -14,4 +14,9 @@ class CampaignManager{
         return $manager->all();
     }
 
+    public function update_register($data){
+        $manager = new DatabaseManager();
+        return $manager->update_register($data);
+    }
+
 }

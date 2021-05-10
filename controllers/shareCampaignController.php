@@ -18,11 +18,26 @@ class shareCampaignController{
     }
     //consultar y luego mostrar la informacion en el formulario
     public function edit(){
-        //$campaign = parent::find($_GET['id']);
-        
+
+        $campaignManager = new CampaignManager();
+        $campaign = $campaignManager->getCampaign($_GET['id']);
+
         require_once 'views/layouts/header.php';
         require_once 'views/campaign/edit.php';
         require_once 'views/layouts/footer.php';
+    }
+
+    public function update(){
+        $_POST['id'] = $_GET['id'];
+        
+        $campaignManager = new CampaignManager();
+        $campaign = $campaignManager->getCampaign($_GET['id']);
+
+        if($campaignManager->update_register($_POST)){
+            header('location:?controller=shareCampaign');
+        }else{
+            die('Error al actualizar');
+        }
     }
 
     public function all(){
@@ -31,8 +46,13 @@ class shareCampaignController{
     }
 
     public function share(){
+        require_once 'views/layouts/header.php';
+        require_once 'views/campaign/share.php';
+        require_once 'views/layouts/footer.php';
+
         $campaignManager = new CampaignManager();
         $campaign = $campaignManager->getCampaign($_GET['id']);
+        echo json_encode($campaign);;
         return $campaign;
     }
 
