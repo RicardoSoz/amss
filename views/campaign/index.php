@@ -1,5 +1,4 @@
-<h1>Lista de usuarios</h1>
-
+<h1>Lista de Campañas</h1>
 <a href="?controller=shareCampaign&method=create">
     <button class="btn btn-green">Crear</button>
 </a>
@@ -18,8 +17,9 @@
     
     require_once( 'C:\xampp\htdocs\Teespring2\controllers\shareCampaignController.php');
     $shareCampaignController = new shareCampaignController();
-    $userID = 9;
-    foreach($shareCampaignController->all() as $campaign):  ?>
+    
+    foreach($shareCampaignController->campaignid($_SESSION{'user'}->id) as $campaign):
+    ?>
         <tr>
             <!-- title, description, link, created, expirationDate, price-->
             <td><?= $campaign->id ?></td>
@@ -33,10 +33,12 @@
                 <a href="?controller=shareCampaign&method=edit&id=<?= $campaign->id ?>">
                     <button class="btn btn-outline-green">Editar</button>
                 </a>
-                <a href="?controller=shareCampaign&method=share&id=<?= $campaign->id ?>&id2=<?= $userID ?>">
+                <a href="?controller=shareCampaign&method=share&id=<?= $campaign->id ?>">
                     <button class="btn btn-outline-blue">Share</button>
                 </a>
+                <a href="?controller=shareCampaign&method=delete&id=<?= $campaign->id ?>">
                 <button class="btn btn-outline-red">Borrar</button>
+                </a>
             </td>
         </tr>
     <?php endforeach; ?>

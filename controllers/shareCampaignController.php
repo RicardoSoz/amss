@@ -29,7 +29,6 @@ class shareCampaignController{
 
     public function update(){
         $_POST['id'] = $_GET['id'];
-        
         $campaignManager = new CampaignManager();
         $campaign = $campaignManager->getCampaign($_GET['id']);
 
@@ -45,15 +44,39 @@ class shareCampaignController{
         return $campaignManager->all();
     }
 
-    public function share(){
-        require_once 'views/layouts/header.php';
-        require_once 'views/campaign/share.php';
-        require_once 'views/layouts/footer.php';
+    public function campaignid($id){
+        $campaignManager = new CampaignManager();
+        return $campaignManager->campaignid($id);
+    }
 
+    public function share(){
         $campaignManager = new CampaignManager();
         $campaign = $campaignManager->getCampaign($_GET['id']);
-        echo json_encode($campaign);;
-        return $campaign;
+
+        require_once 'views/layouts/header.php';
+        require_once 'views/campaign/campaign.php';
+        require_once 'views/layouts/footer.php';
+    }
+
+    public function copy(){
+        return "Holi";
+    }
+
+    public function create(){
+        require_once 'views/layouts/header.php';
+        require_once 'views/campaign/create.php';
+        require_once 'views/layouts/footer.php';
+    }
+
+    public function store(){
+        $campaignManager = new CampaignManager();
+        $campaignManager->register($_POST) ? header('location: ?controller=shareCampaign') : 'Error en el registro';
+    }
+
+    public function delete(){
+        $campaignManager = new CampaignManager();
+        $_POST['id'] = $_GET['id'];
+        $campaign = $campaignManager->delete($_POST['id']) ? header('location: ?controller=shareCampaign') : 'Error al eliminar Campaña';
     }
 
 }

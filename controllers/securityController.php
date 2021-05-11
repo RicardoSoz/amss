@@ -12,7 +12,7 @@ class securityController extends Security {
 
        if(password_verify($_POST['password'], $user->password)){
            $_SESSION['user'] = $user;
-           return header('location:?controller=user');
+           return header('location:?controller=shareCampaign');
        }
 
         $_SESSION['flash']['message'] = 'Contraseña incorrecto.';

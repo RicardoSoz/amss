@@ -1,5 +1,6 @@
 <section class="container">
     <h1>Editar Campaña</h1>
+    
     <form action="?controller=shareCampaign&method=update&id=<?= $campaign->id ?>" method="POST">
         <section class="form-group">
             <label for="title">Title</label>

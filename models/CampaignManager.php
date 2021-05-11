@@ -14,9 +14,24 @@ class CampaignManager{
         return $manager->all();
     }
 
+    public function campaignid($id){
+        $manager = new DatabaseManager();
+        return $manager->campaignid($id);
+    }
+
     public function update_register($data){
         $manager = new DatabaseManager();
         return $manager->update_register($data);
+    }
+
+    public function register($data){
+        $manager = new DatabaseManager();
+        return $manager->register($data);
+    }
+
+    public function delete($campaignId){
+        $manager = new DatabaseManager();
+        return $manager->delete($campaignId);
     }
 
 }
